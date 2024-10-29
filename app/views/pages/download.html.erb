@@ -1,0 +1,32 @@
+<% @title = t('.title') %>
+<% @subtitle = subtitle %>
+
+<%= prose do %>
+  <h2><%= @title %></h2>
+  <p>
+    RubyGems is a package management framework for Ruby.
+    <br>
+    Upgrade to the latest RubyGems at the command line:
+  </p>
+  <pre><code>$ gem update --system</code></pre>
+  <p>
+    If you run into problems that prevent you from upgrading rubygems the standard way, you can try upgrading manually:
+  </p>
+  <ol class="manual">
+    <li>Download the latest version</li>
+    <li>Unpack and <code>cd</code> into the unpacked directory</li>
+    <li>Install with:
+    <pre><code>ruby setup.rb</code></pre>
+    </li>
+    <li>
+      For more details and other options, run: <code>ruby setup.rb --help</code>
+    </li>
+  </ol>
+  <h4>Download the latest version</h4>
+  <div id="formats" class="flex flex-row space-x-6">
+    <%= render ButtonComponent.new "tgz", type: :link, href: "https://rubygems.org/rubygems/rubygems-#{version_number}.tgz" %>
+    <%= render ButtonComponent.new "zip", type: :link, href: "https://rubygems.org/rubygems/rubygems-#{version_number}.zip" %>
+    <%= render ButtonComponent.new "gem", type: :link, href: "https://rubygems.org/gems/rubygems-update-#{version_number}.gem" %>
+    <%= render ButtonComponent.new "git", type: :link, href: "https://github.com/rubygems/rubygems" %>
+  </div>
+<% end %>
